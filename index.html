@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
     <title>Contacts</title>
@@ -11,13 +12,27 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-12">
-          <form>
+          <h1>Contacts</h1>
+          <h2>Add a contact:</h2>
+          <form id="contact">
             <div class="form-group">
               <label for="firstName">First Name</label>
               <input type="text" class="form-control" id="firstName" placeholder="First Name">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div> 
+            <button type="submit" class="btn btn-primary">Add</button>
           </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+          <h2>Contacts:</h2>
+          <ul id="contactList">
+
+          </ul>
         </div>
       </div>
     </div>

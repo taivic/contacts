@@ -5,13 +5,21 @@ $(document).ready(function() {
   var Contact = function(firstName, lastName) {
     this.fullName = firstName + " " + lastName;
     this.firstName = firstName;
-    this.lastName = lastName
+    this.lastName = lastName;
+    this.street = street;
+    this.phoneNumber = phoneNumber;
+    this.city = city;
+    this.state = state;
   }
 
-  $("#contact").submit(function(e) {
+  $("#contactForm").submit(function(e) {
     e.preventDefault();
     var firstName = $("#firstName").val();
     var lastName = $("#lastName").val();
+    var phoneNumber = $("#phoneNumber").val();
+    var street = $("#street").val();
+    var city = $("#city").val();
+    var state = $("#state").val();
 
     $("#contactList").append("<a><li class='contactName text-info'>" + 
       firstName + " " + lastName + "</li></a>");
@@ -24,13 +32,19 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".contactName", function() {
-    var selectedContact = findContact($(this).text());
+    var selectedContact = findContact($(this).text);
     console.log(selectedContact);
+    $("#contactDetail").empty();
+    $("#contactDetail").append("<li>" + selectedContact + "</li>");
   })
 
   function resetForm() {
     $("#firstName").val("");
     $("#lastName").val("");
+    $("#phoneNumber").val("");
+    $("#street").val("");
+    $("#city").val("");
+    $("#state").val("");
   }
 
   function findContact(name) {
@@ -40,5 +54,6 @@ $(document).ready(function() {
       }
     }
   }
+
 
 })

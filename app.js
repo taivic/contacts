@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var contacts = [];
 
-  var Contact = function(firstName, lastName) {
+  var Contact = function(firstName, lastName, street, phoneNumber, city, state) {
     this.fullName = firstName + " " + lastName;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -24,7 +24,7 @@ $(document).ready(function() {
     $("#contactList").append("<a><li class='contactName text-info'>" + 
       firstName + " " + lastName + "</li></a>");
 
-    var newContact = new Contact(firstName, lastName);
+    var newContact = new Contact(firstName, lastName, street, phoneNumber, city, state);
     contacts.push(newContact);
 
     resetForm();
@@ -32,10 +32,15 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".contactName", function() {
-    var selectedContact = findContact($(this).text);
+    var selectedContact = findContact($(this).text());
     console.log(selectedContact);
     $("#contactDetail").empty();
-    $("#contactDetail").append("<li>" + selectedContact + "</li>");
+    $("#contactDetail").append("<ul>" + 
+        selectedContact.fullName + "<br>" +
+        selectedContact.phoneNumber + "<br>" +
+        selectedContact.street + "<br>" +
+        selectedContact.city + "<br>" +
+        selectedContact.state + "</ul>");
   })
 
   function resetForm() {
